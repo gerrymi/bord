@@ -16,7 +16,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  // list: [{ type: Schema.Types.ObjectId, ref: 'List' }],
+  lists: [{ type: Schema.Types.ObjectId, ref: 'List' }],
 });
 
 module.exports = mongoose.model('User', userSchema);

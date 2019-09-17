@@ -10,6 +10,7 @@ export default gql`
   type List {
     name: String
     tasks: [Task]
+    id: ID
   }
   type Task {
     name: String
@@ -29,5 +30,7 @@ export default gql`
   type Mutation {
     register(email: String!, username: String!, password: String!): Response!
     login(username: String!, password: String!): Response!
+    addList(name: String!): Response!
+    addTask(listId: String!, name: String!, description: String): Response!
   }
 `;

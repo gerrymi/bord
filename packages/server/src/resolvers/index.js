@@ -2,14 +2,19 @@ import isemail from 'isemail';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import { User } from '@src/models';
+import { User, List, Task } from '@src/models';
 
 const resolvers = {
-  // User: {
-  //   things: ({ things }) => {
-  //     return things.map(async (g) => await Thing.findById(g));
-  //   },
-  // },
+  User: {
+    lists: ({ lists }) => {
+      return lists.map(async (l) => await List.findById(l))
+    }
+  },
+  List: {
+    tasks: ({ tasks }) => {
+      return tasks.map(async (t) => await Task.findById(t))
+    }
+  },
   Query: {
     currentUser: async (root, args, { user: self, error }) => {
       let success, message, user;
@@ -23,6 +28,7 @@ const resolvers = {
         success = true;
         user = await User.findById(self.id)/* .populate('friends') */;
       }
+      console.log(user)
       return { success, message, user };
     }
   },
@@ -67,6 +73,32 @@ const resolvers = {
         token,
       };
     },
+    addList: async (root, { name }, { user: self }) => {
+      const list = await new List({ name })
+        .save()
+        .catch((err) => {
+          throw new Error(err.toString());
+        });
+      await User.updateOne({ _id: self.id }, { $addToSet: { lists: list } })
+
+      return {
+        success: true,
+        message: `${list.name} has been successfully created!`
+      };
+    },
+    addTask: async (root, { listId, name, description }, { user: self }) => {
+      const task = await new Task({ name, description })
+        .save()
+        .catch(err => {
+          throw new Error(err.toString())
+        })
+      await List.updateOne({ _id: listId }, { $addToSet: { tasks: task } })
+
+      return {
+        success: true,
+        message: `You created ${name} as a task!`
+      }
+    }
   },
 };
 
