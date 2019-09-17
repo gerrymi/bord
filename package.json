@@ -1,0 +1,38 @@
+{
+  "name": "bord",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gerrymi Bernardo <gerrymibernardo@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "concurrently -n \" SERVER , CLIENT \" -c \"yellow.bold,magenta.bold\" \"npm:start:server\" \"npm:start:client\" ",
+    "start:server": "nodemon --watch 'packages/server' --exec babel-node ./packages/server --require node_modules/dotenv/config",
+    "start:client": "lerna run start --scope client"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.2",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "dotenv": "^7.0.0",
+    "lerna": "^3.13.1",
+    "nodemon": "^1.18.10"
+  },
+  "nodemonConfig": {
+    "events": {
+      "restart": "kill $(lsof -t -i:4000)"
+    },
+    "delay": "1000"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  }
+}
