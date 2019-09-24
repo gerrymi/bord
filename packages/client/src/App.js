@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
+import { Button } from './components'
 
 function App() {
   return (
     <div className="Bord">
       <header className="Bord-header">
         <h1 className='header'>Hi, are you Børd?</h1>
-        <button className="Bord-link">Log in<a href="#"></a></button>
-        <button className='createAccount'>Create account<a href='#'></a></button>
+        <Button/>
       </header>
     </div>
   );

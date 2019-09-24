@@ -17,6 +17,9 @@
 .header {
   font-weight: lighter;
 }
+.row {
+  display: inline-block;
+}
 
 .Bord-link {
   background-color: #707070;
@@ -35,7 +38,7 @@
   background-color: rgba(255, 0, 0, 0);
   height: 76px;
   width: 304px;
-  border: 3px solid;
+  border: 2px solid;
   border-radius: 26px;
   color: #707070;
   font-size: 24px;
