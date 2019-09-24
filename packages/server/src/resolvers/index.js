@@ -98,7 +98,33 @@ const resolvers = {
         success: true,
         message: `You created ${name} as a task!`
       }
-    }
+    },
+    deleteUser: async (root, { email, userId }, { user: self }) => {
+      await User.deleteOne({ email: email, _id: userId }, { $pull: userId })
+
+      return {
+        success: true
+      }
+    },
+    deleteList: async (root, { listId }, { user: self }) => {
+      await User.updateOne({ _id: self.id }, {
+        $set: {
+          lists: await List.deleteOne({ _id: listId }, { $pull: listId })
+        }
+      })
+
+      return {
+        success: true
+      }
+    },
+    // deleteTask: async (root, { listId, taskId }) => {
+    //   const updatedTasks = await Task.findByIdAndRemove({ _id: taskId }, { $pull: taskId })
+    //   await List.updateOne({ _id: listId }, { tasks: updatedTasks })
+
+    //   return {
+    //     success: true
+    //   }
+    // }
   },
 };
 

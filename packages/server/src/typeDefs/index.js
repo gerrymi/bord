@@ -15,6 +15,7 @@ export default gql`
   type Task {
     name: String
     description: String
+    id: ID
   }
   type Response {
     success: Boolean!
@@ -32,5 +33,8 @@ export default gql`
     login(username: String!, password: String!): Response!
     addList(name: String!): Response!
     addTask(listId: String!, name: String!, description: String): Response!
+    deleteList(listId: String!): Response!
+    deleteTask(listId: String!, taskId: String!): Response!
+    deleteUser(email: String!, userId: String!): Response!
   }
 `;
