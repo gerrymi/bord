@@ -1,33 +1,55 @@
-.App {
+.Bord {
   text-align: center;
+  font-family: 'Proxima Nova';
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
+.Bord-header {
+  margin: auto 0;
+  background-color: #fff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: #707070;
+}
+.header {
+  font-weight: lighter;
+}
+
+.Bord-link {
+  background-color: #707070;
+  cursor: pointer;
+  height: 76px;
+  width: 304px;
+  border-radius: 26px;
+  transition: ease 0.5s;
   color: white;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+.Bord-link:hover {
+  background-color: rgba(255, 0, 0, 0);
+  height: 76px;
+  width: 304px;
+  border: 3px solid;
+  border-radius: 26px;
+  color: #707070;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.createAccount {
+  margin: 15px 0px 15px 0px;
+  color: #707070;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: lighter;
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+  border-radius: 26%;
 }
