@@ -1,58 +1,59 @@
-.Bord {
-  text-align: center;
-  font-family: 'Proxima Nova';
+body {
+  margin: 0 auto;
 }
 
-.Bord-header {
-  margin: auto 0;
-  background-color: #fff;
-  min-height: 100vh;
+.app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.user-panel {
+  width: 45%;
+  height: 100%;
+  background-color: #ffe5d6;
+  color: #691759;
+  font-family: 'ProximaNova-Bold';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-panel__content-container {
+  width: 600px;
+}
+
+.user-panel__header {
+  width: 400px;
+  font-size: 80px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  margin: 0;
+}
+
+.user-panel__description {
+  font-size: 25px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.art-panel {
+  width: 55%;
+  height: 100%;
+  background: #691759;
+}
+
+.user-panel__buttons {
+  width: 100px;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #707070;
-}
-.header {
-  font-weight: lighter;
-}
-.row {
-  display: inline-block;
-}
-
-.Bord-link {
-  background-color: #707070;
-  cursor: pointer;
-  height: 76px;
-  width: 304px;
-  border-radius: 26px;
-  transition: ease 0.5s;
-  color: white;
-  font-size: 24px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.Bord-link:hover {
-  background-color: rgba(255, 0, 0, 0);
-  height: 76px;
-  width: 304px;
-  border: 2px solid;
-  border-radius: 26px;
-  color: #707070;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.createAccount {
-  margin: 15px 0px 15px 0px;
-  color: #707070;
-  font-size: 24px;
-  font-style: italic;
-  font-weight: lighter;
-  cursor: pointer;
-  text-decoration: none;
-  border: 0;
-  border-radius: 26%;
 }
