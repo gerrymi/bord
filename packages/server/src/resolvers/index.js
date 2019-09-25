@@ -107,25 +107,18 @@ const resolvers = {
       }
     },
     deleteList: async (root, { listId }, { user: self }) => {
-      await User.updateOne({ _id: self.id }, {
-        $set: {
-          lists: await List.deleteOne({ _id: listId }, { $pull: listId })
-        }
-      })
+      await User.updateOne({ _id: self.id }, { $pull: { lists: listId } })
+      await List.deleteOne({ _id: listId })
 
       return {
-        success: true
+        success: true,
+        message: 'You\'ve successfully deleted your list!'
       }
-    },
-    // deleteTask: async (root, { listId, taskId }) => {
-    //   const updatedTasks = await Task.findByIdAndRemove({ _id: taskId }, { $pull: taskId })
-    //   await List.updateOne({ _id: listId }, { tasks: updatedTasks })
+    }
+    // deleteTask: async (root, { taskId }) => {
 
-    //   return {
-    //     success: true
-    //   }
     // }
-  },
+  }
 };
 
 export default resolvers;
