@@ -114,10 +114,17 @@ const resolvers = {
         success: true,
         message: 'You\'ve successfully deleted your list!'
       }
-    }
-    // deleteTask: async (root, { taskId }) => {
+    },
+    deleteTask: async (root, { listId, taskId }) => {
+      await List.updateOne({ _id: listId }, { $pull: { tasks: taskId } })
+      await Task.deleteOne({ _id: taskId })
 
-    // }
+      return {
+        success: true,
+        message: 'You\'ve successfully deleted a task!'
+      }
+
+    }
   }
 };
 

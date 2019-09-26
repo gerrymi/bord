@@ -33,8 +33,8 @@ export default gql`
     login(username: String!, password: String!): Response!
     addList(name: String!): Response!
     addTask(listId: String!, name: String!, description: String): Response!
+    deleteUser(email: String!, userId: String!): Response!
     deleteList(listId: String!): Response!
     deleteTask(listId: String!, taskId: String!): Response!
-    deleteUser(email: String!, userId: String!): Response!
   }
 `;

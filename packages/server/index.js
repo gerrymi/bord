@@ -7,7 +7,7 @@ import resolvers from '@src/resolvers';
 import '@src/mongoose';
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 const SECRET = process.env.SECRET;
 
 const addUser = async (req) => {
