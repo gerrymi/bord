@@ -9,7 +9,7 @@ function Login({
             setButtonsDisplayed(true)
         }
     return (
-        <div className="sign-up">
+        <div className="log-in">
             <input placeholder="Username"/>
             <input placeholder="Create Password"/>
             <button>Log In</button>
