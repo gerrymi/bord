@@ -43,7 +43,7 @@ const IS_LOGGED_IN = gql`
   }
 `;
 
-function App() {
+ function App() {
   const { data } = useQuery(IS_LOGGED_IN);
 
   return (
