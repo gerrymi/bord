@@ -10,14 +10,16 @@ setButtonsDisplayed
         setButtonsDisplayed(true)
     }
     return  (
-        <div className="sign-up">
-            <input placeholder="User Name"/>
-            <input placeholder="Email"/>
-            <input placeholder="Create Password"/>
-            <button>Register</button>
-            <button onClick={() => {
+        <div className="sign-up__concept">
+            <input className='user-panel__input' placeholder="E-mail Address"/>
+            <input className='user-panel__input' placeholder="Password"/>
+            <input className='user-panel__input' placeholder="Retype Password"/>
+            <button className='register-button'>Create Account</button>
+            <button 
+            className='back-button'
+            onClick={() => {
                 goBack()
-            }}>Back</button>
+            }}> <i>&#60; Back</i></button>
         </div>
     )
 }

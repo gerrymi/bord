@@ -9,13 +9,15 @@ function Login({
             setButtonsDisplayed(true)
         }
     return (
-        <div className="log-in">
-            <input placeholder="Username"/>
-            <input placeholder="Create Password"/>
-            <button>Log In</button>
-            <button onClick={() => {
+        <div className="log-in__concept">
+            <input className='user-panel__input' placeholder="E-mail Address"/>
+            <input className='user-panel__input' placeholder="Password"/>
+            <button className='log-in-button'>Log In</button>
+            <button 
+            className='back-button'
+            onClick={() => {
                 goBack()
-            }}>Back</button>
+            }}><i>&#60; Back</i></button>
         </div>
     )
 }
