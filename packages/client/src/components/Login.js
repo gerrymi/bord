@@ -11,7 +11,7 @@ function Login({
     return (
         <div className="log-in__concept">
             <input className='user-panel__input' placeholder="E-mail Address"/>
-            <input className='user-panel__input' placeholder="Password"/>
+            <input type='password' className='user-panel__input' placeholder="Password"/>
             <button className='log-in-button'>Log In</button>
             <button 
             className='back-button'
