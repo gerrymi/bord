@@ -17,7 +17,7 @@ function SignUp({
             <button
                 className='back-button'
                 onClick={() => {
-                    goBack()
+                    goBack() 
                 }}> <i>&#60; Back</i></button>
         </div>
     )
