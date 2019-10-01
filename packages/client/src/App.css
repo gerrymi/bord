@@ -29,7 +29,7 @@ body {
 
 .user-panel__text {
   position: absolute;
-  top: 200px;
+  top: 15%;
 }
 
 .user-panel__content-container {
@@ -56,7 +56,7 @@ body {
   line-height: 1.21;
   letter-spacing: normal;
   text-align: left;
-  max-width: 500px;
+  max-width: 75%;
 }
 .user-panel__options {
   margin-top: 100px;
