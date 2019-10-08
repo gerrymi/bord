@@ -1,52 +1,57 @@
 import React from 'react';
-import ApolloClient from 'apollo-boost'
-import { useQuery } from '@apollo/react-hooks'
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { gql } from 'apollo-boost'
-import { ApolloProvider } from '@apollo/react-hooks'
-import { UserPanel } from './components'
-// import { LOGIN } from './gql/mutations'
+import gql from 'graphql-tag';
+import { UserPanel, Dashboard } from './components'
 import './App.css';
 
-const cache = new InMemoryCache();
-const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
-  request: (operation) => {
-    const token = localStorage.getItem('token')
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : ''
-      }
-    })
-  }
-})
-
-cache.writeData({
-  data: {
-    isLoggedIn: !!localStorage.getItem('token'),
-    cartItems: [],
-  },
-})
-
-const IS_LOGGED_IN = gql`
-  query IsUserLoggedIn {
-    isLoggedIn @client
+const LOGIN = gql`
+  mutation Login($username: String!, $password: String!) {
+    login(username: $username, password: $password) {
+      success,
+      message,
+      token
+    }
   }
 `
 
-function IsLoggedIn() {
-  const { data } = useQuery(IS_LOGGED_IN);
-  return   data.isLoggedIn ? <h1>You logged in</h1> : <UserPanel />
-}
+const SIGN_UP = gql`
+  mutation Register($email: String!, $username: String!, $password: String!) {
+    register(email: $email, username: $username, password: $password) {
+      success,
+      message
+    }
+  }
+`
 
+const GET_USER = gql`
+  query GetUser {
+    currentUser {
+      success
+      message
+      user {
+        username
+        email
+      }
+    }
+  }
+`
 
 function App() {
   return (
-    <ApolloProvider client={client}>
-        {
-        <IsLoggedIn/>
-        }
-    </ApolloProvider>
+    <div className="app">
+      {localStorage.getItem('token') ?
+        <div>
+          <Dashboard
+            GET_USER={GET_USER}
+          />
+        </div>
+        :
+        <UserPanel
+          LOGIN={LOGIN}
+          SIGN_UP={SIGN_UP}
+        />
+      }
+
+    </div>
   );
 }
 

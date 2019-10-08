@@ -26,9 +26,10 @@ const resolvers = {
         message = 'Please Login.';
       } else {
         success = true;
+        message = "Successfully queried the current user."
         user = await User.findById(self.id)/* .populate('friends') */;
       }
-      console.log(user)
+      console.log("user: " + user)
       return { success, message, user };
     }
   },
@@ -52,7 +53,7 @@ const resolvers = {
     },
     login: async (root, { username, password }, { SECRET }) => {
       const user = await User.findOne({ username });
-      if (!user) throw new Error('Invalid username!');
+      if (!user) throw new Error('Invalid username!')
 
       const match = await bcrypt.compare(password, user.password);
       if (!match) throw new Error('Invalid password!');
