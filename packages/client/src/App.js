@@ -38,8 +38,6 @@ const GET_USER = gql`
 function App() {
   return (
     <div className="app">
-      <h1 className='bord-title'>Børd</h1>
-      <div className="art-panel" />
       {localStorage.getItem('token') ?
         <div>
           <Dashboard
@@ -47,10 +45,14 @@ function App() {
           />
         </div>
         :
-        <UserPanel
-          LOGIN={LOGIN}
-          SIGN_UP={SIGN_UP}
-        />
+        <div className="app">
+          <h1 className='bord-title'>Børd</h1>
+          <div className="art-panel" />
+          <UserPanel
+            LOGIN={LOGIN}
+            SIGN_UP={SIGN_UP}
+          />
+        </div>
       }
 
     </div>
