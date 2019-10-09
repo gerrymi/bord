@@ -39,11 +39,11 @@ function App() {
   return (
     <div className="app">
       {localStorage.getItem('token') ?
-        <div>
+
           <Dashboard
             GET_USER={GET_USER}
           />
-        </div>
+
         :
         <div className="app">
           <h1 className='bord-title'>Børd</h1>
