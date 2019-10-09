@@ -15,32 +15,7 @@ body {
   color: #ffe5d6;
 }
 
-/* .bord-title__ {
-  position: absolute;
-  top: 50px;
-  left: 90px;
-  color: #ffe5d6;
-  font-family: "Montserrat", sans-serif;
-  font-size: 40px;
-  text-decoration: none;
-  font-weight: 700;
-} */
 
-.nav-component {
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background: #691759;
-  color: white;
-}
-
-.nav-links {
-  list-style: none;
-  width: 40%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
 .user-panel {
   width: 45%;
@@ -224,4 +199,24 @@ body {
   color: #ffe5d6;
   margin: 50px 0 120px 0;
   display: initial;
+}
+
+/* DASHBOARD.JS */
+
+.spinner {
+
+}
+
+.nav-component {
+  margin: 40px 0 500px 0;
+}
+
+.nav-link {
+  display: flex;
+}
+
+.nav-item {
+  margin: 50px;
+  display: flex;
+  text-transform: uppercase;
 }

@@ -16,13 +16,15 @@ function Dashboard({
   console.log(data)
   return (
     <div className='nav-component'>
-      <ul className='nav-links'>
-        <li>Dashboard</li>
-        <li>How to Use Børd</li>
-        <li>Settings</li>
-        <li>Minimize</li>
-      </ul>
-      <button onClick={() => localStorage.removeItem('token')}>logout</button>
+      <div className='nav-link'>
+        <li className='nav-item'>Dashboard</li>
+        <li className='nav-item'>How to Use Børd</li>
+        <li className='nav-item'>Settings</li>
+      </div>
+      <button
+        className='logout-button'
+        onClick={() => localStorage.removeItem('token')}>
+        logout</button>
     </div>
   );
 }
