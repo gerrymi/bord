@@ -15,8 +15,6 @@ body {
   color: #ffe5d6;
 }
 
-
-
 .user-panel {
   width: 45%;
   height: 100%;
@@ -140,14 +138,13 @@ body {
   font-size-adjust: 0.5;
   font-style: italic;
   font-weight: 100;
-  border-bottom: solid #e12262 .5px;
+  border-bottom: solid #e12262 0.5px;
   padding: 40px 0 15px 0;
 }
 
 .user-panel__input::placeholder {
   color: #e12262;
   font-size: 20px;
-
 }
 
 .register-button {
@@ -180,7 +177,6 @@ body {
   color: #e12262;
 }
 
-
 /*user log in*/
 
 .log-in__concept {
@@ -203,20 +199,87 @@ body {
 
 /* DASHBOARD.JS */
 
-.spinner {
-
-}
-
-.nav-component {
-  margin: 40px 0 500px 0;
-}
-
-.nav-link {
+.dashboard-container {
+  width: 100%;
+  height: 100vh;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.nav-links {
+  height: 100px;
+  margin: 5% 0 0 0;
+  padding-right: 55%; 
 }
 
 .nav-item {
-  margin: 50px;
-  display: flex;
+  margin-right: 70px;
+  padding-bottom: 40px;
   text-transform: uppercase;
+  display: inline;
+  list-style: none;
+  color: #8e8e8e;
+}
+
+.nav-item:hover {
+  margin-right: 70px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid #6d00ff;
+  color: #6d00ff;
+  text-transform: uppercase;
+  display: inline;
+  list-style: none;
+  cursor: pointer;
+}
+
+
+.dashboard-header {
+  width: 100%;
+  margin-top: 30px;
+  color: #fff;
+  background-image: url(/static/media/dashboard-header.4a820573.png);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  min-height: 250px;
+  align-items: center;
+  background-repeat: no-repeat;
+}
+
+.dashboard-header-text {
+  position: relative;
+  left: -35%;
+  top: 100px;
+}
+
+.dashboard-header-text h1 {
+  margin-bottom: 10px;
+}
+
+.dashboard-header-text h5 {
+  font-weight: 100;
+  margin-top: 5px;
+}
+
+.dashboard-panel {
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  background-color: #f8f8f8;
+}
+
+.list-container {
+  background-color: #ffe5d6;
+  width: 50%;
+
+}
+
+.list-item {
+
 }
