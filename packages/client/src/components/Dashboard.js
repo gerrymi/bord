@@ -34,10 +34,31 @@ function Dashboard({
         </div>
       </div>
       <div className='dashboard-panel'>
-        <div className='list-container'>
-          <div>List
+        <div className='list-title'>List
+          <div className='list-container'>
+            <div className='list-item'>&#10005;</div>
+            <div className='list-item'>This is a List Item</div>
+            <div className='list-item'>35 Tasks</div>
+            <div className='list-item'>Due 11/95</div>
+          </div>
+          <div className='list-container'>
+            <div className='list-item'>&#10005;</div>
+            <div className='list-item'>This is a List Item</div>
+            <div className='list-item'>35 Tasks</div>
+            <div className='list-item'>Due 11/95</div>
+          </div>
+          <div className='list-container__selected'>
+            <div className='list-item__selected'>&#10005;</div>
+            <div className='list-item__selected'>Selected Event</div>
+            <div className='list-item__selected'>4 Tasks</div>
+            <div className='list-item__selected'>Due 12/27</div>
+          </div>
+          <div className='list-container__add'>
 
           </div>
+        </div>
+        <div className='task-title'>Tasks for Selected Event
+
         </div>
       </div>
     </div>
