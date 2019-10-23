@@ -34,9 +34,42 @@ function Dashboard({
         </div>
       </div>
       <div className='dashboard-panel'>
-        <div className='list-container'>
-          <div>List
+        <div className='list-title'>List
+          <div className='list-container'>
+            <div className='list-item'>&#10005;</div>
+            <div className='list-item'><strong>This is a List Item</strong></div>
+            <div className='list-item'>35 Tasks</div>
+            <div className='list-item'>Due 11/95</div>
+          </div>
+          <div className='list-container'>
+            <div className='list-item'>&#10005;</div>
+            <div className='list-item'><strong>This is a List Item</strong></div>
+            <div className='list-item'>35 Tasks</div>
+            <div className='list-item'>Due 11/95</div>
+          </div>
+          <div className='list-container__selected'>
+            <div className='list-item__selected'>&#10005;</div>
+            <div className='list-item__selected'><strong>Selected Event</strong></div>
+            <div className='list-item__selected'>4 Tasks</div>
+            <div className='list-item__selected'>Due 12/27</div>
+          </div>
+          <div className='list-container__add'>
 
+          </div>
+        </div>
+        <div className='task-title'>Tasks for Selected Event
+          <div className='task-container'>
+            <div className='task-date'>Monday, April 27</div>
+            <button className='add-task__button'>Add Task</button>
+            <div className='task-item'>
+              <div className='task-item__title'>Some Task</div>
+              <div className='task-item__time'>10:00 AM - 11:00 AM</div>
+
+              <p className='task-item__info'>Bacon ipsum dolor sit, amet consectetur adipisicing elit. 
+                Facere quia corrupti quo, illo culpa quaerat perspiciatis earum tempora 
+                provident distinctio debitis architecto libero. 
+                Excepturi ea ducimus aliquid vitae sequi ipsam pork belly.</p>
+            </div>
           </div>
         </div>
       </div>
