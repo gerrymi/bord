@@ -17,7 +17,6 @@ const addUser = async (req) => {
       const { user } = await jwt.verify(token, SECRET);
       req.user = user;
     } catch (err) {
-      console.log(err.name, err.message);
       if (err.name === 'TokenExpiredError') {
         req.error = err.name;
       }
