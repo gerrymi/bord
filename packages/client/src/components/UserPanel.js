@@ -6,7 +6,8 @@ import Login from './Login';
 
 function UserPanel({
   LOGIN,
-  SIGN_UP
+  SIGN_UP,
+  setUser
 }) {
   const [signUpToggle, setSignUpToggle] = useState(false)
   const [logInToggle, setLogInToggle] = useState(false)
@@ -48,10 +49,8 @@ function UserPanel({
                   login
                   buttonsDisplayed={buttonsDisplayed}
                   setButtonsDisplayed={setButtonsDisplayed}
-                  SIGN_UP={SIGN_UP}
                 />
                 : <Login
-                  LOGIN={LOGIN}
                   buttonsDisplayed={buttonsDisplayed}
                   setButtonsDisplayed={setButtonsDisplayed}
                 />

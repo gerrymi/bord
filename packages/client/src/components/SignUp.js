@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
+import { SIGN_UP } from '../gql';
 
-function SignUp({ buttonsDisplayed, setButtonsDisplayed, SIGN_UP }) {
+function SignUp({ buttonsDisplayed, setButtonsDisplayed }) {
   function goBack() {
     console.log(buttonsDisplayed);
     setButtonsDisplayed(true);

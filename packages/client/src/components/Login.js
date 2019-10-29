@@ -1,14 +1,16 @@
-import React from 'react';
-import { useMutation, useApolloClient } from '@apollo/react-hooks';
+import React, { useContext } from 'react';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { useState } from 'react';
+import { AppContext } from '../App';
+import { LOGIN, GET_USER } from '../gql';
 
-function Login({ buttonsDisplayed, setButtonsDisplayed, LOGIN }) {
-  const client = useApolloClient();
-  const [login, { data, loading, error }] = useMutation(LOGIN, {
+function Login({ setButtonsDisplayed }) {
+  const _AppContext = useContext(AppContext);
+  const [login, { loading, error, data }] = useMutation(LOGIN, {
     onCompleted({ login }) {
-      localStorage.setItem('token', login.token);
-      client.writeData({ data: { isLoggedIn: true } });
-      console.log(login.token);
+      if (login.token) {
+        _AppContext.setIsLoggedIn(true);
+      }
     },
   });
   const [username, setUsername] = useState('');
@@ -27,7 +29,7 @@ function Login({ buttonsDisplayed, setButtonsDisplayed, LOGIN }) {
   }
 
   function keyDownLogin() {
-    login({ variables: { username: username, password: password } });
+    login({ variables: { username, password } });
   }
 
   return (
@@ -36,14 +38,12 @@ function Login({ buttonsDisplayed, setButtonsDisplayed, LOGIN }) {
         className="user-panel__input"
         placeholder="Username"
         onChange={usernameOnChange}
-        onKeyDown={keyDownLogin}
       />
       <input
         type="password"
         className="user-panel__input"
         placeholder="Password"
         onChange={passwordOnChange}
-        onKeyDown={keyDownLogin}
       />
       <button className="log-in-button" onClick={keyDownLogin}>
         Log In
