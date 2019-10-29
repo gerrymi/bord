@@ -9,6 +9,7 @@ function Login({ setButtonsDisplayed }) {
   const [login, { loading, error, data }] = useMutation(LOGIN, {
     onCompleted({ login }) {
       if (login.token) {
+        localStorage.setItem('token', login.token);
         _AppContext.setIsLoggedIn(true);
       }
     },

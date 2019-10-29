@@ -1,40 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DashContext } from './Dashboard';
 
-export default () => (
-  <div className="list-title">
-    List
-    <div className="list-container">
-      <div className="list-item">
-        <button className='list-delete'>&#10005;</button>
+export default () => {
+  const _DashContext = useContext(DashContext);
+  const user = _DashContext.user;
+  return (
+    <div className="list-title">
+      List
+      { user && user.lists.map((l, index) => {
+        const isSelected = index === 0;
+        const selectedClass = (isSelected) ? "list-container__selected" : "list-container"
+        const itemSelectedClass = (isSelected) ? "list-item__selected" : "list-item"
+        return (
+          <div className={selectedClass} key={`listItem_${index}`}>
+            <div className={itemSelectedClass}>&#10005;</div>
+            <div className={itemSelectedClass}>
+              <strong>{l.name}</strong>
+            </div>
+            <div className={itemSelectedClass}>{l.tasks.length} Tasks</div>
+          </div>
+        )
+      })}
+      <div className="list-container__add">
+        <button className='list-add'>+</button>
       </div>
-      <div className="list-item">
-        <strong>This is a List Item</strong>
-      </div>
-      <div className="list-item">35 Tasks</div>
-      <div className="list-item">Due 11/95</div>
     </div>
-    <div className="list-container">
-      <div className="list-item">
-        <button className='list-delete'>&#10005;</button>
-      </div>
-      <div className="list-item">
-        <strong>This is a List Item</strong>
-      </div>
-      <div className="list-item">35 Tasks</div>
-      <div className="list-item">Due 11/95</div>
-    </div>
-    <div className="list-container__selected">
-      <div className="list-item__selected">
-        <button className='list-delete__selected'>&#10005;</button>
-      </div>
-      <div className="list-item__selected">
-        <strong>Selected Event</strong>
-      </div>
-      <div className="list-item__selected">4 Tasks</div>
-      <div className="list-item__selected">Due 12/27</div>
-    </div>
-    <div className="list-container__add">
-      <button className='list-add'>+</button>
-    </div>
-  </div>
-);
+  );
+};

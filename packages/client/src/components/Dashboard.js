@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext, createContext, useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { GET_USER, ADD_LIST } from '../gql';
 import { AppContext } from '../App';
 import ListContainer from './ListContainer';
 import TaskContainer from './TaskContainer';
 
+export const DashContext = createContext(null);
+
 function Dashboard() {
-  const context = useContext(AppContext);
+  const _AppContext = useContext(AppContext);
+  const [user, setUser] = useState(null);
+
   const token = localStorage.getItem('token');
+
   const [addList] = useMutation(ADD_LIST, {
     context: {
       headers: {
@@ -15,6 +20,7 @@ function Dashboard() {
       },
     },
   });
+
   const { loading, error, data } = useQuery(GET_USER, {
     context: {
       headers: {
@@ -25,38 +31,43 @@ function Dashboard() {
 
   const logout = () => {
     localStorage.removeItem('token');
-    context.setIsLoggedIn(false);
-  }
+    _AppContext.setIsLoggedIn(false);
+  };
+
+  useEffect(() => {
+    if (data) {
+      setUser(data.currentUser.user);
+    }
+  }, [data]);
 
   if (loading) return <div className="spinner" />;
   if (error) return <h1>{error.message}</h1>;
 
   return (
-    <div className="dashboard-container">
-      <div className="nav-links">
-        <li className="nav-item">Dashboard</li>
-        <li className="nav-item">How to Use Børd</li>
-        <li className="nav-item">Settings</li>
-      </div>
-      <div className='nav-item__button'>
-        <button
-          className="logout-button"
-          onClick={logout}
-        >
-          logout
-        </button>
-      </div>
-      <div className="dashboard-header">
-        <div className="dashboard-header-text">
-          <h1>Hey, Name!</h1>
-          <h5>You look good today! Here's what's on your agenda.</h5>
+    <DashContext.Provider value={{ user }}>
+      <div className="dashboard-container">
+        <div className="nav-links">
+          <li className="nav-item">Dashboard</li>
+          <li className="nav-item">How to Use Børd</li>
+          <li className="nav-item">Settings</li>
+        </div>
+        <div className="nav-item__button">
+          <button className="logout-button" onClick={logout}>
+            logout
+          </button>
+        </div>
+        <div className="dashboard-header">
+          <div className="dashboard-header-text">
+            <h1>Hey, Name!</h1>
+            <h5>You look good today! Here's what's on your agenda.</h5>
+          </div>
+        </div>
+        <div className="dashboard-panel">
+          <ListContainer />
+          <TaskContainer />
         </div>
       </div>
-      <div className="dashboard-panel">
-        <ListContainer />
-        <TaskContainer />
-      </div>
-    </div>
+    </DashContext.Provider>
   );
 }
 
