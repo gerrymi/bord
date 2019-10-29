@@ -36,35 +36,64 @@ function Dashboard({
   if (error) return <h1>{error.message}</h1>
 
   return (
-    <div className='nav-component'>
-      <ul className='nav-links'>
-        <li>Dashboard</li>
-        <li>How to Use Børd</li>
-        <li>Settings</li>
-        <li>Minimize</li>
-      </ul>
-      <h1>Lists</h1>
-      <input
-        placeholder="Let's create a List..."
-        value={listInput}
-        onChange={listOnChange}
-      />
-      <button
-        onClick={() => {
-          addList({ variables: { name: listInput} })
-        }
-        }>Add List
-      </button>
-      {/* <ul>
-        {
-          data.currentUser.user.lists.map((list, i) => {
-            return (
-              <li>{list.name}</li>
-            )
-          })
-        }
-      </ul> */}
-      <button onClick={() => localStorage.removeItem('token')}>logout</button>
+    <div className="dashboard-container">
+      <div className='nav-links'>
+        <li className='nav-item'>Dashboard</li>
+        <li className='nav-item'>How to Use Børd</li>
+        <li className='nav-item'>Settings</li>
+
+        <button
+          className='logout-button'
+          onClick={() => localStorage.removeItem('token')}>
+          logout</button>
+
+      </div>
+      <div className='dashboard-header'>
+        <div className='dashboard-header-text'>
+          <h1>Hey, Name!</h1>
+          <h5>You look good today! Here's what's on your agenda.</h5>
+        </div>
+      </div>
+      <div className='dashboard-panel'>
+        <div className='list-title'>List
+          <div className='list-container'>
+            <div className='list-item'>&#10005;</div>
+            <div className='list-item'><strong>This is a List Item</strong></div>
+            <div className='list-item'>35 Tasks</div>
+            <div className='list-item'>Due 11/95</div>
+          </div>
+          <div className='list-container'>
+            <div className='list-item'>&#10005;</div>
+            <div className='list-item'><strong>This is a List Item</strong></div>
+            <div className='list-item'>35 Tasks</div>
+            <div className='list-item'>Due 11/95</div>
+          </div>
+          <div className='list-container__selected'>
+            <div className='list-item__selected'>&#10005;</div>
+            <div className='list-item__selected'><strong>Selected Event</strong></div>
+            <div className='list-item__selected'>4 Tasks</div>
+            <div className='list-item__selected'>Due 12/27</div>
+          </div>
+          <div className='list-container__add'>
+
+          </div>
+        </div>
+        <div className='task-title'>Tasks for Selected Event
+          <div className='task-container'>
+            <div className='task-date'>Monday, April 27</div>
+            <button className='add-task__button'>Add Task</button>
+            <div className='task-item'>
+              <div className='task-item__title'>Some Task</div>
+              <div className='task-item__time'>10:00 AM - 11:00 AM</div>
+
+              <p className='task-item__info'>Bacon ipsum dolor sit, amet consectetur adipisicing elit. 
+                Facere quia corrupti quo, illo culpa quaerat perspiciatis earum tempora 
+                provident distinctio debitis architecto libero. 
+                Excepturi ea ducimus aliquid vitae sequi ipsam pork belly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
