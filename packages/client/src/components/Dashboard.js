@@ -37,7 +37,8 @@ function Dashboard() {
         <li className="nav-item">Dashboard</li>
         <li className="nav-item">How to Use Børd</li>
         <li className="nav-item">Settings</li>
-
+      </div>
+      <div className='nav-item__button'>
         <button
           className="logout-button"
           onClick={logout}

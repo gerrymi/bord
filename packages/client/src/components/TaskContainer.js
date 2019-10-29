@@ -7,7 +7,10 @@ export default () => (
       <div className="task-date">Monday, April 27</div>
       <button className="add-task__button">Add Task</button>
       <div className="task-item">
-        <div className="task-item__title">Some Task</div>
+        <input
+          className="task-item__title"
+          placeholder='Some Task'
+          type="text" />
         <div className="task-item__time">10:00 AM - 11:00 AM</div>
 
         <p className="task-item__info">

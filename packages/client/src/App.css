@@ -212,6 +212,8 @@ body {
 }
 
 .nav-links {
+  display: flex;
+  justify-content: flex-start;
   height: 100px;
   margin: 5% 0 0 0;
   padding-right: 55%;
@@ -225,7 +227,7 @@ body {
   list-style: none;
   color: #8e8e8e;
 }
-çç .nav-item:hover {
+.nav-item:hover {
   margin-right: 70px;
   padding-bottom: 40px;
   border-bottom: 2px solid #6d00ff;
@@ -234,6 +236,15 @@ body {
   display: inline;
   list-style: none;
   cursor: pointer;
+}
+
+.nav-item__button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logout-button {
+  display: flex;
 }
 
 .dashboard-header {
@@ -301,6 +312,8 @@ body {
   margin-right: 50px;
   margin-top: 20px;
   max-width: 900px;
+  -webkit-transition: ease .5s;
+  transition: ease .5s;
 }
 
 .list-item {
@@ -316,12 +329,18 @@ body {
 
 .list-delete {
   border: none;
+  outline: none;
   color: #6d00ff;
   font-size: 20px;
   background-color: transparent;
 }
 
+.list-delete:hover {
+  color: red;
+}
+
 .list-delete__selected {
+  outline: none;
   display: flex;
   align-items: center;
   border: none;
@@ -331,16 +350,7 @@ body {
 }
 
 .list-delete__selected:hover {
-  display: flex;
-  align-items: center;
-  border: none;
-  color: #fff;
-  font-size: 20px;
-  background-color: transparent;
-}
-
-.list-delete:hover {
-  background-color: #6d00ff;
+  color: red;
 }
 
 .list-container__selected {
