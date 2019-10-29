@@ -54,7 +54,7 @@ function Dashboard({ GET_USER, ADD_LIST, listInput, listOnChange }) {
           List
           <div className="list-container">
             <div className="list-item">
-              <button className="list-delete">x</button>
+              <button className="list-delete">&#10005;</button>
             </div>
             <div className="list-item">
               <strong>This is a List Item</strong>
@@ -64,7 +64,7 @@ function Dashboard({ GET_USER, ADD_LIST, listInput, listOnChange }) {
           </div>
           <div className="list-container">
             <div className="list-item">
-              <button className="list-delete">x</button>
+              <button className="list-delete">&#10005;</button>
             </div>
             <div className="list-item">
               <strong>This is a List Item</strong>
@@ -74,7 +74,7 @@ function Dashboard({ GET_USER, ADD_LIST, listInput, listOnChange }) {
           </div>
           <div className="list-container__selected">
             <div className="list-item">
-              <button className="list-delete">x</button>
+              <button className="list-delete__selected">&#10005;</button>
             </div>
             <div className="list-item__selected">
               <strong>Selected Event</strong>
@@ -82,7 +82,9 @@ function Dashboard({ GET_USER, ADD_LIST, listInput, listOnChange }) {
             <div className="list-item__selected">4 Tasks</div>
             <div className="list-item__selected">Due 12/27</div>
           </div>
-          <div className="list-container__add"></div>
+          <div className="list-container__add">
+            <button className='list-add'>+</button>
+          </div>
         </div>
         <div className="task-title">
           Tasks for Selected Event
