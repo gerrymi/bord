@@ -9,6 +9,7 @@ export const DashContext = createContext(null);
 
 function Dashboard() {
   const _AppContext = useContext(AppContext);
+  const [selectedList, setSelectedList] = useState(null);
   const [user, setUser] = useState(null);
 
   const token = localStorage.getItem('token');
@@ -37,6 +38,7 @@ function Dashboard() {
   useEffect(() => {
     if (data) {
       setUser(data.currentUser.user);
+      setSelectedList(data.currentUser.user.lists[0].id);
     }
   }, [data]);
 
@@ -44,7 +46,7 @@ function Dashboard() {
   if (error) return <h1>{error.message}</h1>;
 
   return (
-    <DashContext.Provider value={{ user }}>
+    <DashContext.Provider value={{ user, selectedList, setSelectedList }}>
       <div className="dashboard-container">
         <div className="nav-links">
           <li className="nav-item">Dashboard</li>
