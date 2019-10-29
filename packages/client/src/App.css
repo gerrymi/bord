@@ -224,9 +224,8 @@ body {
   display: inline;
   list-style: none;
   color: #8e8e8e;
-}çç
-
-.nav-item:hover {
+}
+çç .nav-item:hover {
   margin-right: 70px;
   padding-bottom: 40px;
   border-bottom: 2px solid #6d00ff;
@@ -241,7 +240,7 @@ body {
   width: 100%;
   margin-top: 30px;
   color: #fff;
-  background-image: url('./asset/dashboard-header.png');
+  background-image: url("./asset/dashboard-header.png");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -369,7 +368,7 @@ body {
 
 .task-item {
   height: auto;
-  position: fixed;
+  position: absolute;
   width: 35%;
   margin-top: 50px;
   background-color: #7c7c7c;
@@ -380,7 +379,16 @@ body {
 
 .task-item__title {
   font-weight: 500;
+  font-size: 20px;
   line-height: 2;
+  background-color: transparent;
+  border: 0;
+  color: #fff;
+  outline: none;
+}
+
+.task-item__title::placeholder {
+  color: #333;
 }
 
 .task-item__time {
