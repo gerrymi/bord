@@ -20,8 +20,8 @@ body {
   height: 100%;
   background-color: #ffe5d6;
   color: #691759;
-  font-family: "Raleway", sans-serif;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +65,7 @@ body {
 .art-panel {
   width: 55%;
   height: 100%;
-  background-image: url("./asset/bord-woman.jpg");
+  background-image: url('./asset/bord-woman.jpg');
   background-size: cover;
 }
 
@@ -240,7 +240,7 @@ body {
   width: 100%;
   margin-top: 30px;
   color: #fff;
-  background-image: url("./asset/dashboard-header.png");
+  background-image: url('./asset/dashboard-header.png');
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -292,11 +292,26 @@ body {
   max-width: 900px;
 }
 
+.list-container:hover {
+  background-color: #e1ccff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+  margin-right: 50px;
+  margin-top: 20px;
+  max-width: 900px;
+}
+
 .list-item {
   margin: 30px;
   font-weight: 300;
   font-size: 14px;
   color: #6d00ff;
+}
+
+.list-delete:hover {
+  background-color: #6d00ff;
 }
 
 .list-container__selected {
