@@ -1,19 +1,40 @@
-import React from 'react'
-import { useQuery } from '@apollo/react-hooks'
+import React, { useState, useEffect } from 'react'
+import { useQuery, useMutation, useApolloClient } from '@apollo/react-hooks'
 
 function Dashboard({
-  GET_USER
+  GET_USER,
+  ADD_LIST,
+  listInput,
+  listOnChange
 }) {
-  const { loading, error, data } = useQuery(GET_USER, {
+  const [currentUser, setCurrentUser] = useState({})
+
+  const token = localStorage.getItem('token')
+  const [addList] = useMutation(ADD_LIST, {
     context: {
       headers: {
-        authorization: localStorage.getItem('token')
+        authorization: token
       }
     }
   })
-  if (loading) return <div className="spinner" />
-  // if (error) return <h1>{error.message}</h1>
+  console.log(token)
+  const { loading, error, data } = useQuery(GET_USER,
+    {
+      context: {
+        headers: {
+          authorization: token
+        }
+      }
+    })
+
   console.log(data)
+  // useEffect(() => {
+  //   setCurrentUser(data.currentUser.user)
+  // }, [])
+
+  if (loading) return <div className="spinner" />
+  if (error) return <h1>{error.message}</h1>
+
   return (
     <div className="dashboard-container">
       <div className='nav-links'>
