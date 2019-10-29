@@ -342,6 +342,18 @@ body {
   margin-top: 20px;
 }
 
+.list-add {
+  font-weight: 300;
+  font-size: 30px;
+  color: #ffffff;
+  margin: 0 auto;
+  height: 40px;
+  width: 40px;
+  background-color: #6900ff;
+  border-radius: 100%;
+  text-align: center;
+}
+
 /* task style */
 
 .task-title {
